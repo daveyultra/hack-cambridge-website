@@ -24,7 +24,8 @@ applicationsRouter.get('/', (req, res, next) => {
       name: `${application.hacker.firstName} ${application.hacker.lastName}`,
       gender: application.hacker.gender,
       country: application.countryTravellingFrom,
-      inTeam: application.hacker.Team !== null || application.inTeam,
+      inTeam: application.hacker.Team !== null,
+      appliedAsTeam: application.inTeam,
       rating: calculateScore(application, individualScores, teamScores),
       status: application.applicationResponse !== null ? (application.applicationResponse === 'invited' ? 'Invited' : 'Not Invited') : 'Pending',
     }))
